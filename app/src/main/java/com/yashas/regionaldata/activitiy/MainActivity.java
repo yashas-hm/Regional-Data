@@ -1,15 +1,20 @@
 package com.yashas.regionaldata.activitiy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,7 +33,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private RegionalAdapter adapter;
+    private SharedPreferences sharedPreferences;
 
     private String selectedRegion = "Asia";
 
@@ -47,15 +51,85 @@ public class MainActivity extends AppCompatActivity {
         setUp();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.chooser, menu);
+        int reg = sharedPreferences.getInt("region", 1);
+        MenuItem item = menu.findItem(reg-1);
+        item.setChecked(true);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.asia:
+                selectedRegion = "asia";
+                item.setChecked(true);
+                sharedPreferences.edit().putInt("region", 1).apply();
+                break;
+            case R.id.africa:
+                selectedRegion = "africa";
+                item.setChecked(true);
+                sharedPreferences.edit().putInt("region", 2).apply();
+                break;
+            case R.id.america:
+                selectedRegion = "america";
+                item.setChecked(true);
+                sharedPreferences.edit().putInt("region", 3).apply();
+                break;
+            case R.id.europe:
+                selectedRegion = "europe";
+                item.setChecked(true);
+                sharedPreferences.edit().putInt("region", 4).apply();
+                break;
+            case R.id.oceania:
+                selectedRegion = "oceania";
+                item.setChecked(true);
+                sharedPreferences.edit().putInt("region", 5).apply();
+                break;
+            case R.id.clear:
+                new DBFunctions(2).execute();
+        }
+        loadData();
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setUp(){
         initUi();
         listeners();
+        regionSelection();
         loadData();
     }
 
     private void initUi(){
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
+        sharedPreferences = getSharedPreferences("region", Context.MODE_PRIVATE);
+    }
+
+    private void regionSelection(){
+        int id = sharedPreferences.getInt("region", 1);
+        switch(id){
+            case 1:
+                selectedRegion = "asia";
+                break;
+            case 2:
+                selectedRegion = "africa";
+                break;
+            case 3:
+                selectedRegion = "america";
+                break;
+            case 4:
+                selectedRegion = "europe";
+                break;
+            case 5:
+                selectedRegion = "oceania";
+                break;
+        }
     }
 
 
@@ -151,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpRecycler(ArrayList<RegionEntity> regionEntity){
-        adapter = new RegionalAdapter(this, regionEntity);
+        RegionalAdapter adapter = new RegionalAdapter(this, regionEntity);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }

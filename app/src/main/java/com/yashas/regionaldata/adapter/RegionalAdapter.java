@@ -10,23 +10,19 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.yashas.regionaldata.R;
 import com.yashas.regionaldata.database.RegionEntity;
 import com.yashas.regionaldata.utility.Utils;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class RegionalAdapter extends RecyclerView.Adapter<RegionalAdapter.RegionalAdapterViewHolder>{
     private final List<RegionEntity> regionEntity;
-    private List<RegionEntity> showData;
     private final Context context;
 
     public RegionalAdapter(Context context, List<RegionEntity> regionEntity){
         this.regionEntity = regionEntity;
         this.context = context;
-        showData = regionEntity;
     }
 
     @NonNull
@@ -48,7 +44,7 @@ public class RegionalAdapter extends RecyclerView.Adapter<RegionalAdapter.Region
 
     @Override
     public void onBindViewHolder(@NonNull RegionalAdapterViewHolder holder, int position) {
-        RegionEntity region = showData.get(position);
+        RegionEntity region = regionEntity.get(position);
         String lang = region.languages;
         String border = region.borders;
         holder.countryName.setText(region.name);
@@ -63,7 +59,7 @@ public class RegionalAdapter extends RecyclerView.Adapter<RegionalAdapter.Region
 
     @Override
     public int getItemCount() {
-        return showData.size();
+        return regionEntity.size();
     }
 
     public static class RegionalAdapterViewHolder extends RecyclerView.ViewHolder{

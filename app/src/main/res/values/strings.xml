@@ -6,4 +6,10 @@
     <string name="languages">Languages</string>
     <string name="borders">Borders</string>
     <string name="population">Population</string>
+    <string name="asia">Asia</string>
+    <string name="africa">Africa</string>
+    <string name="america">America</string>
+    <string name="europe">Europe</string>
+    <string name="oceania">Oceania</string>
+    <string name="delete_database">Delete Database</string>
 </resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/asia"
+            android:title="@string/asia"/>
+        <item
+            android:id="@+id/africa"
+            android:title="@string/africa"/>
+        <item
+            android:id="@+id/america"
+            android:title="@string/america"/>
+        <item
+            android:id="@+id/europe"
+            android:title="@string/europe"/>
+        <item
+            android:id="@+id/oceania"
+            android:title="@string/oceania"/>
+    </group>
+
+    <item
+        android:id="@+id/clear"
+        android:title="@string/delete_database"/>
+
+</menu>
