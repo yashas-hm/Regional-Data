@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/edit_text_box"
+    android:padding="@dimen/_8sdp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flag"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_search"
+        android:scaleType="fitCenter"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/countryName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/flag"
+        app:layout_constraintBottom_toBottomOf="@id/flag"
+        app:layout_constraintStart_toEndOf="@id/flag"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Country Name"
+        android:textColor="@color/secondaryColor"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:gravity="center"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/capitalTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/capital"
+        app:layout_constraintTop_toBottomOf="@id/countryName"
+        android:textColor="@color/secondaryColor"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:textSize="@dimen/_13sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/capital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_box"
+        android:textSize="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@id/capitalTxt"
+        android:layout_marginVertical="@dimen/_5sdp"
+        tools:text="Capital"
+        android:textColor="@color/secondaryColor"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/regionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/region"
+        app:layout_constraintTop_toBottomOf="@id/capital"
+        android:textColor="@color/secondaryColor"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:textSize="@dimen/_13sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_box"
+        android:textSize="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@id/regionTxt"
+        android:layout_marginVertical="@dimen/_5sdp"
+        tools:text="Region"
+        android:textColor="@color/secondaryColor"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subRegionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sub_region"
+        app:layout_constraintTop_toBottomOf="@id/region"
+        android:textColor="@color/secondaryColor"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:textSize="@dimen/_13sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subRegion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_box"
+        android:textSize="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@id/subRegionTxt"
+        android:layout_marginVertical="@dimen/_5sdp"
+        tools:text="Sub-Region"
+        android:textColor="@color/secondaryColor"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/subRegion"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_8sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/languagesTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/languages"
+                android:textColor="@color/secondaryColor"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAlignment="center"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/languages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_60sdp"
+                android:textColor="@color/secondaryColor"
+                android:textSize="@dimen/_15sdp"
+                android:backgroundTint="@color/pale"
+                android:backgroundTintMode="multiply"
+                tools:text="wf,addf,ad fadf,adf,afg,adf,a"
+                android:background="@drawable/fill_box"
+                android:padding="@dimen/_5sdp"
+                app:layout_constraintTop_toBottomOf="@id/languagesTxt"
+                android:layout_marginTop="@dimen/_5sdp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_8sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/bordersTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/borders"
+                android:textColor="@color/secondaryColor"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAlignment="center"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/borders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_60sdp"
+                android:backgroundTint="@color/pale"
+                android:backgroundTintMode="multiply"
+                android:textColor="@color/secondaryColor"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_5sdp"
+                tools:text="wf,addf,ad fadf,adf,afg,adf,a"
+                android:background="@drawable/fill_box"
+                app:layout_constraintTop_toBottomOf="@id/bordersTxt"
+                android:layout_marginTop="@dimen/_5sdp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/populationTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/population"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/layout"
+        android:textColor="@color/secondaryColor"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:textSize="@dimen/_13sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/population"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_box"
+        android:textSize="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@id/populationTxt"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:textAlignment="center"
+        tools:text="654684654"
+        android:textColor="@color/secondaryColor"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

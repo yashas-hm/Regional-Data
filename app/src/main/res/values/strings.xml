@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Regional Data</string>
+    <string name="capital">Capital</string>
+    <string name="region">Region</string>
+    <string name="sub_region">Sub-Region</string>
+    <string name="languages">Languages</string>
+    <string name="borders">Borders</string>
+    <string name="population">Population</string>
+</resources>
