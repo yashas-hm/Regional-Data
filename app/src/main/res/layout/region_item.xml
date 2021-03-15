@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/edit_text_box"
-    android:padding="@dimen/_8sdp">
+    android:padding="@dimen/_8sdp"
+    android:layout_marginVertical="@dimen/_5sdp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/flag"

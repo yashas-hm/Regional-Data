@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences sharedPreferences;
 
-    private String selectedRegion = "Asia";
+    private String selectedRegion = "asia";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.chooser, menu);
-        int reg = sharedPreferences.getInt("region", 1);
-        MenuItem item = menu.findItem(reg-1);
-        item.setChecked(true);
         return true;
     }
 
@@ -184,17 +181,11 @@ public class MainActivity extends AppCompatActivity {
                     }, error -> {
                         Toast.makeText(
                                 MainActivity.this,
-                                "some error occurred!",
+                                "some error occurred",
                                 Toast.LENGTH_SHORT
                         ).show();
-                    }){
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> map = Collections.emptyMap();
-                    map.put("Content-type", "application/json");
-                    return map;
-                }
-            };
+                        System.out.println(error);
+                    });
             queue.add(objectRequest);
         }else{
             try {
@@ -208,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Toast.makeText(
                         MainActivity.this,
-                        "some error occurred!",
+                        "some error occurred!!",
                         Toast.LENGTH_SHORT
                 ).show();
             }
